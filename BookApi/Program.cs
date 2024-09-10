@@ -1,4 +1,5 @@
 using BookApi.Data;
+using BookApi.Services.Autor;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+// Let the Interface know that their methods are implemented in AutorService
+builder.Services.AddScoped<IAutorInterface, AutorService>();
 
 // Get connection string from AppDbContext and applying before run the application
 builder.Services.AddDbContext<AppDbContext>(options =>
