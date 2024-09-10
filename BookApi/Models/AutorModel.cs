@@ -11,4 +11,6 @@ public class AutorModel
     [JsonIgnore]
     public ICollection<LivroModel> Livros { get; set; }
     
+    
+    
 }
